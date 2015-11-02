@@ -18,12 +18,16 @@ SELECT COUNT(*) FROM authors INNER JOIN books ON authors.id=books.author_id WHER
 SELECT COUNT(*) FROM authors INNER JOIN books ON authors.id=books.author_id WHERE nationality = 'United States of America';
 
 -- Find all books written after 1930 by authors from Argentina.
-SELECT COUNT(*) FROM authors INNER JOIN books ON authors.id=books.author_id WHERE nationality = 'Argentina' AND publication_date >= 1930;
+SELECT * FROM authors INNER JOIN books ON authors.id=books.author_id WHERE nationality = 'Argentina' AND publication_date >= 1930;
 
 -- Find all books written before 1980 by authors not from the US.
+SELECT * FROM authors INNER JOIN books ON authors.id=books.author_id WHERE nationality != 'United States of America' AND publication_date <= 1980;
 
 -- Find all authors whose names start with 'J'.
+SELECT * FROM authors WHERE name LIKE 'J%';
 
 -- Find all books whose titles contain 'the'.
+SELECT * FROM books WHERE title LIKE '%the%';
 
 -- Find all authors who have written books with that start with the letter 'N'.
+SELECT name FROM authors INNER JOIN books ON authors.id=books.author_id WHERE title LIKE 'N%';
